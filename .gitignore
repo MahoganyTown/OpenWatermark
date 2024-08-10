@@ -1,0 +1,14 @@
+# Folders & Files
+__pycache__/
+example/
+.DS_Store
+
+# Images & PDF
+*.jpeg
+*.jpg
+*.png
+*.pdf
+
+# Fonts
+*.ttc
+*ttf
