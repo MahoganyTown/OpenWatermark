@@ -1,5 +1,5 @@
 ## OpenWatermark
-OpenWatermark is a very simple and small program that you can use to stamp your files. It allows you to add a watermark on PDF documents as well as images. It is only available through CLI. It is particularly useful for protecting documents that contain sensitive information like ID, passport, birth certificate...
+OpenWatermark is a very simple and small program that you can use to stamp your files. It allows you to add a watermark on PDF documents as well as images. It is particularly useful for protecting documents that contain sensitive information like ID, passport, birth certificate...
 
 ## Installation
 Run the following command in a terminal:
