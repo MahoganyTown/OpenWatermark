@@ -12,3 +12,6 @@ example/
 # Fonts
 *.ttc
 *ttf
+
+# Icon exception
+!icon.png

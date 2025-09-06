@@ -6,15 +6,15 @@ import fitz
 import numpy as np
 from PIL import Image
 
-from common import *
-from rand import *
-from spoof import *
-from utils import *
+from .common import *
+from .rand import *
+from .spoof import *
+from .utils import *
 
 
 def flatten_pdf(doc: fitz.Document, 
     do_noise: bool = True, do_bands: bool = True, 
-    dpi: int = 300) -> fitz.Document:
+    dpi: int = 150) -> fitz.Document:
     '''
     Flatten the PDF document by rendering each page to an image and then
     converting it back to a PDF page. This can help in removing any
@@ -44,8 +44,9 @@ def flatten_pdf(doc: fitz.Document,
         # Convert PIL image back to Pixmap for PyMuPDF
         img = Image.fromarray(img_arr)
 
+        # Imge to bytes and compress
         buf = io.BytesIO()
-        img.save(buf, format='JPEG')
+        img.save(buf, format='JPEG', quality=80)
         buf.seek(0)
         noisy_pix = fitz.Pixmap(buf)
 
@@ -194,10 +195,12 @@ def watermark(input_filenames: list, watermark_text: str, spacing: float = 0.60,
         # Save the document with encryption
         doc.save(output_pdf_filename, garbage=3,
                 deflate=True, preserve_metadata=False,
+                clean=True, linear=True,
                 encryption=fitz.PDF_ENCRYPT_AES_256,
                 user_pw='',
                 owner_pw=owner_pw,
-                permissions=perm)
+                permissions=perm,
+                compression_effort=4)
         
         # Close the document
         doc.close()

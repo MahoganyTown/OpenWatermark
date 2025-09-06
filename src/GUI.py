@@ -9,8 +9,8 @@ from PyQt6.QtCore import QTimer
 from PyQt6 import QtGui
 import qdarktheme
 
-from common import *
-from watermark import *
+from .common import *
+from .watermark import *
 
 
 class FileDropLabel(QLabel):
@@ -176,9 +176,13 @@ class WatermarkWindow(QWidget):
         self.submit_button.setStyleSheet('')
 
 
-if __name__ == '__main__':
+def run():
     app = QApplication(sys.argv)
     qdarktheme.setup_theme('auto')
     window = WatermarkWindow()
     window.show()
     sys.exit(app.exec())
+
+
+if __name__ == '__main__':
+    run()

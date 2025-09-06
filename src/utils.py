@@ -1,13 +1,13 @@
 import io
+import os
 import string
 import secrets
 import datetime
-from pathlib import Path
 
 import fitz
 from PIL import Image
 
-from common import *
+from .common import *
 
 
 def generate_password(length: int = 40) -> str:
@@ -95,10 +95,7 @@ def get_new_pdf_filename(input_file_path: str) -> str:
     :return: New filename for the output PDF
     '''
 
-    p = Path(input_file_path)
-    new_name = f'{p.stem}_marked.pdf'
-
-    return str(p.with_name(new_name))
+    return os.path.splitext(os.path.abspath(input_file_path))[0] + '_marked.pdf'
 
 
 def open_document(input_filename: str) -> fitz.Document:
@@ -126,7 +123,7 @@ def save_pwd_to_file(owner_pw: str, input_filename: str) -> None:
     :param input_filename: Path to the input file
     '''
 
-    p = Path(input_filename)
+    p = os.path.abspath(input_filename)
     pwd_file = p.with_suffix('.txt')
 
     with open(pwd_file, 'w') as f:
