@@ -25,7 +25,6 @@ nipype==1.10.0
 numpy==2.0.2
 packaging==25.0
 pandas==2.2.3
-pathlib==1.0.1
 pillow==11.2.1
 prov==2.0.1
 puremagic==1.29
