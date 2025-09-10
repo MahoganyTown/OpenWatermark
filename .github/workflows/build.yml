@@ -46,7 +46,7 @@ jobs:
           - os: windows-latest
             TARGET: windows
             CMD_BUILD: pyinstaller main.py --noconfirm --name OpenWatermarkWin --noconsole --clean --optimize=2 --onefile --icon=icon.png
-            OUT_FILE_NAME: OpenWatermark.exe
+            OUT_FILE_NAME: OpenWatermarkWin.exe
             ASSET_MIME: application/vnd.microsoft.portable-executable
           - os: ubuntu-latest
             TARGET: linux
